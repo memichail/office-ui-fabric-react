@@ -9,7 +9,7 @@ import { FocusZone, FocusZoneDirection } from 'office-ui-fabric-react/lib/FocusZ
 import { List } from 'office-ui-fabric-react/lib/List';
 import { Text } from 'office-ui-fabric-react/lib/Text';
 
-import { IMicrofeedbackComponent, IMicrofeedbackProps, VoteType } from './Microfeedback.types';
+import { IMicrofeedbackProps, VoteType } from './Microfeedback.types';
 import { IMicrofeedbackState } from './Microfeedback.state';
 
 import { initializeIcons } from '@uifabric/icons';
@@ -31,7 +31,7 @@ const microfeedbackItemStyles: IButtonStyles = {
   ]
 };
 
-class MicrofeedbackBaseComponent extends React.Component<IMicrofeedbackProps, IMicrofeedbackState> {
+export class MicrofeedbackBase extends React.Component<IMicrofeedbackProps, IMicrofeedbackState> {
   // ref's will be linked to each of the icons for callout placement
   private dislikeRef = React.createRef<HTMLDivElement>();
   private likeRef = React.createRef<HTMLDivElement>();
@@ -137,16 +137,3 @@ class MicrofeedbackBaseComponent extends React.Component<IMicrofeedbackProps, IM
     }
   }
 }
-
-export const MicrofeedbackBase: IMicrofeedbackComponent['view'] = props => {
-  return (
-    <div>
-      <MicrofeedbackBaseComponent
-        ThumbsDownQuestion={props.ThumbsDownQuestion}
-        ThumbsUpQuestion={props.ThumbsUpQuestion}
-        thumbsUpTitle={props.thumbsUpTitle}
-        thumbsDownTitle={props.thumbsDownTitle}
-      />
-    </div>
-  );
-};
