@@ -31,7 +31,7 @@ const microfeedbackItemStyles: IButtonStyles = {
   ]
 };
 
-class MicrofeedbackViewComponent extends React.Component<IMicrofeedbackProps, IMicrofeedbackState> {
+class MicrofeedbackBaseComponent extends React.Component<IMicrofeedbackProps, IMicrofeedbackState> {
   // ref's will be linked to each of the icons for callout placement
   private dislikeRef = React.createRef<HTMLDivElement>();
   private likeRef = React.createRef<HTMLDivElement>();
@@ -138,10 +138,10 @@ class MicrofeedbackViewComponent extends React.Component<IMicrofeedbackProps, IM
   }
 }
 
-export const MicrofeedbackView: IMicrofeedbackComponent['view'] = props => {
+export const MicrofeedbackBase: IMicrofeedbackComponent['view'] = props => {
   return (
     <div>
-      <MicrofeedbackViewComponent
+      <MicrofeedbackBaseComponent
         ThumbsDownQuestion={props.ThumbsDownQuestion}
         ThumbsUpQuestion={props.ThumbsUpQuestion}
         thumbsUpTitle={props.thumbsUpTitle}

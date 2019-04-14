@@ -31,6 +31,8 @@ export interface IMicrofeedbackProps
   defaultText?: string;
 }
 
+export interface IMicrofeedbackStyleProps {}
+
 export interface IMicrofeedbackQuestion {
   question: string; // Question to be asked after a vote
   options: string[]; // List of options to be shown as answers
