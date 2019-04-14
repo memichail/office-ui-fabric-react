@@ -1,4 +1,3 @@
-import { IComponentStyles } from '../../Foundation';
 import { IStyleFunctionOrObject } from '../../Utilities';
 
 // Optional interface to use for componentRef. This should be limited in scope with the most common scenario being for focusing elements.
@@ -30,6 +29,4 @@ export interface IMicrofeedbackQuestion {
 
 export interface IMicrofeedbackViewProps extends IMicrofeedbackProps {}
 
-export interface IMicrofeedbackTokens {}
-
-export type IMicrofeedbackStyles = IComponentStyles<IMicrofeedbackSlots>;
+export interface IMicrofeedbackStyles {}
