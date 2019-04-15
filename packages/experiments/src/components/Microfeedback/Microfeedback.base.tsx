@@ -2,17 +2,18 @@
 import * as React from 'react';
 import { withSlots } from '../../Foundation';
 import { Stack } from '../../Stack';
+import { classNamesFunction } from '../../Utilities';
 import { IconButton, IButtonStyles, DefaultButton } from 'office-ui-fabric-react/lib/Button';
 import { IStackStyles } from 'office-ui-fabric-react/lib/Stack';
 import { Callout } from 'office-ui-fabric-react/lib/Callout';
 import { FocusZone, FocusZoneDirection } from 'office-ui-fabric-react/lib/FocusZone';
 import { List } from 'office-ui-fabric-react/lib/List';
 import { Text } from 'office-ui-fabric-react/lib/Text';
-
-import { IMicrofeedbackProps, VoteType } from './Microfeedback.types';
+import { IMicrofeedbackProps, IMicrofeedbackStyleProps, IMicrofeedbackStyles, VoteType } from './Microfeedback.types';
 import { IMicrofeedbackState } from './Microfeedback.state';
-
 import { initializeIcons } from '@uifabric/icons';
+
+const getClassNames = classNamesFunction<IMicrofeedbackStyleProps, IMicrofeedbackStyles>();
 
 const microfeedbackStyles: IStackStyles = {
   root: [
@@ -55,8 +56,12 @@ export class MicrofeedbackBase extends React.Component<IMicrofeedbackProps, IMic
     const hideThumbsUpCallout = this.state.vote !== 'like' || !this.state.isFollowupVisible;
     const onCalloutDismiss = this._onCalloutDismiss.bind(this);
 
+    const classNames = getClassNames(this.props.styles, {
+      theme: this.props.theme
+    });
+
     return (
-      <div>
+      <div className={classNames.root}>
         <Stack horizontal styles={microfeedbackStyles}>
           <div ref={this.likeRef}>
             <IconButton menuIconProps={{ iconName: likeIcon }} title={this.props.thumbsUpTitle} onClick={this._vote.bind(this, 'like')} />

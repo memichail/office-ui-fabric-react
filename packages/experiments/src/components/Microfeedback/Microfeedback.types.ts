@@ -1,4 +1,5 @@
 import { IStyleFunctionOrObject } from '../../Utilities';
+import { IStyle, ITheme } from '../../Styling';
 
 // Optional interface to use for componentRef. This should be limited in scope with the most common scenario being for focusing elements.
 export interface IMicrofeedback {}
@@ -17,10 +18,14 @@ export interface IMicrofeedbackProps extends IMicrofeedbackSlots {
   ThumbsUpQuestion?: IMicrofeedbackQuestion; // Optional question to be asked if user selected thumbsUp
   ThumbsDownQuestion?: IMicrofeedbackQuestion; // Optional question to be asked if user selectes thumbsDown
   defaultText?: string;
+
   styles?: IStyleFunctionOrObject<IMicrofeedbackStyleProps, IMicrofeedbackStyles>;
+  theme?: ITheme;
 }
 
-export interface IMicrofeedbackStyleProps {}
+export interface IMicrofeedbackStyleProps {
+  theme?: ITheme;
+}
 
 export interface IMicrofeedbackQuestion {
   question: string; // Question to be asked after a vote
@@ -29,4 +34,6 @@ export interface IMicrofeedbackQuestion {
 
 export interface IMicrofeedbackViewProps extends IMicrofeedbackProps {}
 
-export interface IMicrofeedbackStyles {}
+export interface IMicrofeedbackStyles {
+  root: IStyle;
+}
