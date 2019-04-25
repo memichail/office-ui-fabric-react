@@ -1,2 +1,2 @@
-export * from './Microfeedback';
-export * from './Microfeedback.types';
+export * from './MicroFeedback';
+export * from './MicroFeedback.types';

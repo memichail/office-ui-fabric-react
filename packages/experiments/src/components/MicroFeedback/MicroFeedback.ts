@@ -1,10 +1,10 @@
 import { styled } from '../../Utilities';
-import { MicrofeedbackBase } from './Microfeedback.base';
-import { getStyles } from './Microfeedback.styles';
-import { IMicrofeedbackProps, IMicrofeedbackStyleProps, IMicrofeedbackStyles } from './Microfeedback.types';
+import { MicroFeedbackBase } from './MicroFeedback.base';
+import { getStyles } from './MicroFeedback.styles';
+import { IMicroFeedbackProps, IMicroFeedbackStyleProps, IMicroFeedbackStyles } from './MicroFeedback.types';
 
-export const Microfeedback: React.StatelessComponent<IMicrofeedbackProps> = styled<
-  IMicrofeedbackProps,
-  IMicrofeedbackStyleProps,
-  IMicrofeedbackStyles
->(MicrofeedbackBase, getStyles, undefined, { scope: 'Microfeedback' });
+export const MicroFeedback: React.StatelessComponent<IMicroFeedbackProps> = styled<
+  IMicroFeedbackProps,
+  IMicroFeedbackStyleProps,
+  IMicroFeedbackStyles
+>(MicroFeedbackBase, getStyles, undefined, { scope: 'MicroFeedback' });
