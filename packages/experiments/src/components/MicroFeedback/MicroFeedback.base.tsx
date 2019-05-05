@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Stack } from '../../Stack';
 import { classNamesFunction } from '../../Utilities';
-import { IconButton, DefaultButton, Callout, FocusZone, FocusZoneDirection, List, Text } from 'office-ui-fabric-react';
+import { IconButton, DefaultButton, FocusZone, FocusZoneDirection, List, Text } from 'office-ui-fabric-react';
 import { IMicroFeedbackProps, IMicroFeedbackStyleProps, IMicroFeedbackStyles, VoteType } from './MicroFeedback.types';
 import { IProcessedStyleSet } from 'office-ui-fabric-react/lib/Styling';
 
@@ -46,16 +46,8 @@ export class MicroFeedbackBase extends React.Component<IMicroFeedbackProps, IMic
         <div ref={this.dislikeRef}>
           <IconButton menuIconProps={{ iconName: dislikeIcon }} title={this.props.thumbsDownTitle} onClick={this._dislikeVote} />
         </div>
-        {this.props.thumbsUpQuestion ? (
-          <Callout
-            className={this.classNames.followUpContainer}
-            hidden={hideThumbsUpCallout}
-            role="alertdialog"
-            gapSpace={0}
-            target={this.likeRef.current}
-            setInitialFocus={true}
-            onDismiss={this._onCalloutDismiss}
-          >
+        {this.props.thumbsUpQuestion && !hideThumbsUpCallout ? (
+          <Stack className={this.classNames.followUpContainer} role="alertdialog" gap={0}>
             <FocusZone direction={FocusZoneDirection.vertical}>
               <Text block={true} className={this.classNames.followUpQuestion} variant="small">
                 {this.props.thumbsUpQuestion.question}
@@ -66,18 +58,10 @@ export class MicroFeedbackBase extends React.Component<IMicroFeedbackProps, IMic
                 onRenderCell={this._onRenderCalloutItem}
               />
             </FocusZone>
-          </Callout>
+          </Stack>
         ) : null}
-        {this.props.thumbsDownQuestion ? (
-          <Callout
-            className={this.classNames.followUpContainer}
-            hidden={hideThumbsDownCallout}
-            role="alertdialog"
-            gapSpace={0}
-            target={this.dislikeRef.current}
-            setInitialFocus={true}
-            onDismiss={this._onCalloutDismiss}
-          >
+        {this.props.thumbsDownQuestion && !hideThumbsDownCallout ? (
+          <Stack className={this.classNames.followUpContainer} role="alertdialog" gap={0}>
             <FocusZone direction={FocusZoneDirection.vertical}>
               <Text block={true} className={this.classNames.followUpQuestion} variant="small">
                 {this.props.thumbsDownQuestion.question}
@@ -88,7 +72,7 @@ export class MicroFeedbackBase extends React.Component<IMicroFeedbackProps, IMic
                 onRenderCell={this._onRenderCalloutItem}
               />
             </FocusZone>
-          </Callout>
+          </Stack>
         ) : null}
       </Stack>
     );
