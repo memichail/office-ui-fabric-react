@@ -14,8 +14,6 @@ export interface IMicroFeedbackState {
 
 export class MicroFeedbackBase extends React.Component<IMicroFeedbackProps, IMicroFeedbackState> {
   // ref's will be linked to each of the icons for callout placement
-  private dislikeRef = React.createRef<HTMLDivElement>();
-  private likeRef = React.createRef<HTMLDivElement>();
   private classNames: IProcessedStyleSet<IMicroFeedbackStyles>;
 
   constructor(props: IMicroFeedbackProps) {
@@ -39,13 +37,11 @@ export class MicroFeedbackBase extends React.Component<IMicroFeedbackProps, IMic
     });
 
     return (
-      <Stack className={this.classNames.root} horizontal>
-        <div ref={this.likeRef}>
+      <Stack className={this.classNames.root}>
+        <Stack horizontal>
           <IconButton menuIconProps={{ iconName: likeIcon }} title={this.props.thumbsUpTitle} onClick={this._likeVote} />
-        </div>
-        <div ref={this.dislikeRef}>
           <IconButton menuIconProps={{ iconName: dislikeIcon }} title={this.props.thumbsDownTitle} onClick={this._dislikeVote} />
-        </div>
+        </Stack>
         {this.props.thumbsUpQuestion && !hideThumbsUpCallout ? (
           <Stack className={this.classNames.followUpContainer} role="alertdialog" gap={0}>
             <FocusZone direction={FocusZoneDirection.vertical}>

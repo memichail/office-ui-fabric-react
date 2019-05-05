@@ -26,21 +26,20 @@ export class MicroFeedbackBasicExample extends React.Component<{}, {}> {
 
     const microfeedbackStyles: IMicroFeedbackStyles = {
       root: {
-        float: 'left'
+        float: 'left',
+        width: '100%'
       }
     };
     return (
-      <div>
-        <MicroFeedback
-          styles={microfeedbackStyles}
-          thumbsDownQuestion={followUpOnThumbsDown}
-          thumbsUpQuestion={followUpOnThumbsUp}
-          thumbsUpTitle="Like"
-          thumbsDownTitle="Dislike"
-          sendFeedback={sendFeedbackCallback}
-          sendFollowupIndex={sendFollowupIndexCallback}
-        />
-      </div>
+      <MicroFeedback
+        styles={microfeedbackStyles}
+        thumbsDownQuestion={followUpOnThumbsDown}
+        thumbsUpQuestion={followUpOnThumbsUp}
+        thumbsUpTitle="Like"
+        thumbsDownTitle="Dislike"
+        sendFeedback={sendFeedbackCallback}
+        sendFollowupIndex={sendFollowupIndexCallback}
+      />
     );
   }
 }

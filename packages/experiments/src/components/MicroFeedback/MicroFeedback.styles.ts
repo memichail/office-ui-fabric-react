@@ -30,7 +30,7 @@ export const getStyles = (props: IMicroFeedbackStyleProps): IMicroFeedbackStyles
       width: '100%'
     },
     followUpContainer: {
-      paddingLeft: '0px'
+      width: '100%'
     }
   };
 };
